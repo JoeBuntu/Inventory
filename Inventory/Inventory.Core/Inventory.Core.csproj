@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="NHibernate">
-      <HintPath>..\..\..\.NET Libraries\NHibernate-3.2.0.GA-bin\Required_Bins\NHibernate.dll</HintPath>
+      <HintPath>..\..\..\..\.NET Libraries\NHibernate-3.2.0.GA-bin\Required_Bins\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -57,7 +57,7 @@
     <Content Include="Mappings\BOM.hbm.xml" />
     <Content Include="Mappings\BOMComponent.hbm.xml" />
     <EmbeddedResource Include="Mappings\Brand.hbm.xml" />
-    <Content Include="Mappings\Location.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Location.hbm.xml" />
     <EmbeddedResource Include="Mappings\Material.hbm.xml" />
     <EmbeddedResource Include="Mappings\Vendor.hbm.xml" />
   </ItemGroup>
