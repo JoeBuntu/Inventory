@@ -49,6 +49,7 @@
     <Compile Include="Entities\Location.cs" />
     <Compile Include="Entities\Material.cs" />
     <Compile Include="Entities\MaterialType.cs" />
+    <Compile Include="Entities\UnitType.cs" />
     <Compile Include="Entities\Vendor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
