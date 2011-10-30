@@ -7,5 +7,6 @@ namespace Inventory.Core.Entities
 {
     public enum UnitType
     {
+        Cases = 1, Pieces = 2, Eaches = 3
     }
 }
