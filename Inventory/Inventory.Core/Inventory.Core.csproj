@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Mappings\BOM.hbm.xml" />
+    <EmbeddedResource Include="Mappings\BOM.hbm.xml" />
     <Content Include="Mappings\BOMComponent.hbm.xml" />
     <EmbeddedResource Include="Mappings\Brand.hbm.xml" />
     <EmbeddedResource Include="Mappings\Location.hbm.xml" />

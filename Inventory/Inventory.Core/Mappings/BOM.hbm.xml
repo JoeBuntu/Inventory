@@ -1,1 +1,16 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Inventory.Core"
+                   namespace="Inventory.Core.Entities">
+  <class name="BOM">
+    <id name="Id">
+      <generator class="guid.comb" />
+    </id>
+    <one-to-one name="Product" class="Material" />
+    <list name="Components" cascade="all-delete-orphan">
+      <key column="ComponentID" />
+      <index column="ComponentIndex" />
+      <one-to-many class="Material"/>
+    </list>
+  </class>
+</hibernate-mapping>
