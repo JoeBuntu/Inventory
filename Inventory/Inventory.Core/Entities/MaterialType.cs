@@ -7,5 +7,6 @@ namespace Inventory.Core.Entities
 {
     public enum MaterialType
     {
+        Product = 1, Component = 2
     }
 }
