@@ -58,7 +58,7 @@
     <Content Include="Mappings\BOMComponent.hbm.xml" />
     <Content Include="Mappings\Brand.hbm.xml" />
     <Content Include="Mappings\Location.hbm.xml" />
-    <Content Include="Mappings\Material.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Material.hbm.xml" />
     <Content Include="Mappings\Vendor.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

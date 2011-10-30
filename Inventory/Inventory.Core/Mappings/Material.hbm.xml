@@ -1,2 +1,17 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Inventory.Core"
+                   namespace="Inventory.Core.Entities">
+  <class name="Material">
+    <id name="Id">
+      <generator class="guid.comb" />
+    </id>
+    <natural-id mutable="false">
+      <property name="PartNumber" not-null="true" length="30" />
+    </natural-id>
+    <property name="Description" length="50" />
+    <property name="Type" not-null="true" />
+    <property name="PiecesPerCase" not-null="true" />
+    <property name="EachesPerPiece" not-null="true" />
+  </class>
+</hibernate-mapping>
