@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HibernatingRhinos.Profiler.Appender">
+      <HintPath>..\..\..\..\.NET Libraries\NHibernate.Profiler-Build-917\HibernatingRhinos.Profiler.Appender.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\..\..\..\.NET Libraries\log4net-1.2.10\bin\net\2.0\release\log4net.dll</HintPath>
     </Reference>
