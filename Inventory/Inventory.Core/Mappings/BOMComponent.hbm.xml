@@ -2,12 +2,12 @@
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
                    assembly="Inventory.Core"
                    namespace="Inventory.Core.Entities">
-  <class name="BOMComponent">
-    <id name="Id">
-      <generator class="guid.comb" />
+  <class name="BOMComponent" table="bom_cmpnnt">
+    <id name="Id" column="bom_cmpnnt_id">
+      <generator class="hilo" />
     </id>
     <one-to-one name="Component" class="Material" />
-    <property name="Unit" not-null="true" />
-    <property name="Quantity" not-null="true" />
+    <property name="Unit" column="bom_cmpnnt_unt" not-null="true" />
+    <property name="Quantity" column="bom_cmpnnt_qntty" not-null="true" />
   </class>
 </hibernate-mapping>
