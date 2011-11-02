@@ -7,10 +7,10 @@
       <generator class="hilo" />
     </id>
     <many-to-one name="Product" class="Material" column="mtrl_id" foreign-key="fk_BOM_Material" unique="true" not-null="true" />
-    <list name="Components" cascade="all-delete-orphan">
-      <key column="ComponentID" />
-      <index column="ComponentIndex" />
-      <one-to-many class="Material"/>
-    </list>
+
+    <set name="Components">
+      <key column="bom_id" foreign-key="fk_BOMComponent_BOM" not-null="true" unique="true" />
+      <one-to-many class="BOMComponent"/>
+    </set>
   </class>
 </hibernate-mapping>
