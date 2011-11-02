@@ -2,16 +2,16 @@
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
                    assembly="Inventory.Core"
                    namespace="Inventory.Core.Entities">
-  <class name="Material">
-    <id name="Id">
-      <generator class="guid.comb" />
+  <class name="Material" table="mtrl">
+    <id name="Id" column="mtrl_id">
+      <generator class="hilo" />
     </id>
     <natural-id mutable="false">
-      <property name="PartNumber" not-null="true" length="30" />
+      <property name="PartNumber" column="mtrl_prt_nmbr" not-null="true" length="30" />
     </natural-id>
-    <property name="Description" length="50" />
-    <property name="Type" not-null="true" />
-    <property name="PiecesPerCase" not-null="true" />
-    <property name="EachesPerPiece" not-null="true" />
+    <property name="Description" column="mtrl_dscrptn" length="50" />
+    <property name="Type" column="mtrl_typ" not-null="true" />
+    <property name="PiecesPerCase" column="mtrl_pcs_per_cs" not-null="true" />
+    <property name="EachesPerPiece" column="mtrl_echs_per_pc" not-null="true" />
   </class>
 </hibernate-mapping>
