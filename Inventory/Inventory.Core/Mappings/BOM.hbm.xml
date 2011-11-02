@@ -6,7 +6,7 @@
     <id name="Id" column="bom_id">
       <generator class="hilo" />
     </id>
-    <one-to-one name="Product" class="Material" />
+    <many-to-one name="Product" class="Material" column="mtrl_id" foreign-key="fk_BOM_Material" unique="true" not-null="true" />
     <list name="Components" cascade="all-delete-orphan">
       <key column="ComponentID" />
       <index column="ComponentIndex" />
