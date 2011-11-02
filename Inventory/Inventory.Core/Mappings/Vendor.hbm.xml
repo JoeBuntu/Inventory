@@ -2,12 +2,12 @@
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
                    assembly="Inventory.Core"
                    namespace="Inventory.Core.Entities">
-  <class name="Vendor">
-    <id name="Id">
-      <generator class="guid.comb" />
+  <class name="Vendor" table="vndr">
+    <id name="Id" column="vndr_id">
+      <generator class="hilo" />
     </id>
     <natural-id mutable="false">
-      <property name="Name" length="30" not-null="true" />
+      <property name="Name" column="vndr_nm" length="30" not-null="true" />
     </natural-id>
   </class>
 </hibernate-mapping>
