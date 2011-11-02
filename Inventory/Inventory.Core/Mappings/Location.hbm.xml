@@ -2,14 +2,14 @@
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
                    assembly="Inventory.Core"
                    namespace="Inventory.Core.Entities">
-  <class name="Location">
-    <id name="Id">
-      <generator class="guid.comb" />
+  <class name="Location" table="lctn">
+    <id name="Id" column="lctn_id">
+      <generator class="hilo" />
     </id>
     <natural-id mutable="false">
-      <property name="Name" length="30" not-null="true" />
+      <property name="Name" column="lctn_nm" length="30" not-null="true" />
     </natural-id>
-    <property name="IsEnabled" not-null="true" />
-    <property name="IsSystemLocation" not-null="true" />
+    <property name="IsEnabled" column="lctn_is_enbld" not-null="true" />
+    <property name="IsSystemLocation" column="lctn_is_systm_lctn" not-null="true" />
   </class>
 </hibernate-mapping>
