@@ -7,7 +7,7 @@ namespace Inventory.Core.Entities
 {
     public abstract class EntityBase<TId>
     {
-        public virtual Guid Id { get; protected set; }
+        public virtual TId Id { get; protected set; }
         protected virtual int Version { get; set; }
 
         public override bool Equals(object obj)
@@ -47,7 +47,7 @@ namespace Inventory.Core.Entities
             return Id.GetHashCode();
         }
     }
-    public abstract class EntityBase : EntityBase<Guid>
+    public abstract class EntityBase : EntityBase<int>
     {
     }
 }
