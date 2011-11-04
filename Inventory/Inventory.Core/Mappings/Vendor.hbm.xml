@@ -9,5 +9,6 @@
     <natural-id mutable="false">
       <property name="Name" column="vndr_nm" length="30" not-null="true" />
     </natural-id>
+    <property name="Version" column="vndr_vrsn" />
   </class>
 </hibernate-mapping>
