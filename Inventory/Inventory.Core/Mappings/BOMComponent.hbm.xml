@@ -6,6 +6,7 @@
     <id name="Id" column="bom_cmpnnt_id">
       <generator class="hilo" />
     </id>
+    <property name="Version" column="bom_cmpnnt_vrsn" />
     <many-to-one name="Component"  class="Material" column="mtrl_id" foreign-key="fk_BOMComponent_Material" not-null="true" />
     <property name="Unit" column="bom_cmpnnt_unt" not-null="true" />
     <property name="Quantity" column="bom_cmpnnt_qntty" not-null="true" />
