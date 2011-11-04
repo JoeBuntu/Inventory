@@ -6,6 +6,7 @@
     <id name="Id" column="bom_id">
       <generator class="hilo" />
     </id>
+    <property name="Version" column="bom_vrsn" />
     <many-to-one name="Product" class="Material" column="mtrl_id" foreign-key="fk_BOM_Material" unique="true" not-null="true" />
 
     <set name="Components">
