@@ -20,8 +20,9 @@ namespace Inventory.WebUI
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                new { controller = "Product", action = "List", page = UrlParameter.Optional } // Parameter defaults
             );
+            routes.MapRoute(null, "{controller}/{action}");
 
         }
 
@@ -31,5 +32,6 @@ namespace Inventory.WebUI
             RegisterRoutes(RouteTable.Routes);
             ControllerBuilder.Current.SetControllerFactory(new NInjectControllerFactory());
         }
+
     }
 }
