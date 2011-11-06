@@ -9,7 +9,7 @@
     <natural-id mutable="false">
       <property name="PartNumber" column="mtrl_prt_nmbr" not-null="true" length="30" />
     </natural-id>
-    <property name="Version" column="mtrl_vrsn" />
+    <version name="Version" column="mtrl_vrsn" />
     <property name="Description" column="mtrl_dscrptn" length="50" />
     <property name="Type" column="mtrl_mtrl_typ_id" not-null="true" />
     <property name="PiecesPerCase" column="mtrl_pcs_per_cs" not-null="true" />
