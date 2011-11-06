@@ -9,6 +9,6 @@
     <natural-id mutable="false">
       <property name="Name" column="brnd_nm" length="30" not-null="true" />
     </natural-id>
-    <property name="Version" column="brnd_vrsn" />
+    <version name="Version" column="brnd_vrsn" />
   </class>
 </hibernate-mapping>
