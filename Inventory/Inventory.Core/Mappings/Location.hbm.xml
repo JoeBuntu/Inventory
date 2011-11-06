@@ -9,7 +9,7 @@
     <natural-id mutable="false">
       <property name="Name" column="lctn_nm" length="30" not-null="true" />
     </natural-id>
-    <property name="Version" column="lctn_vrsn" />
+    <version name="Version" column="lctn_vrsn" />
     <property name="IsEnabled" column="lctn_is_enbld" not-null="true" />
     <property name="IsSystemLocation" column="lctn_is_systm_lctn" not-null="true" />
   </class>
