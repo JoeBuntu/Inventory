@@ -11,7 +11,7 @@ namespace Inventory.Core.Data
         protected readonly ISessionFactory _sessionFactory;
         protected virtual ISession Session
         {
-            get { return _sessionFactory.GetCurrentSession(); }
+            get { return _sessionFactory.OpenSession(); }
         }
 
         public NHibernateBase(ISessionFactory sessionFactory)
