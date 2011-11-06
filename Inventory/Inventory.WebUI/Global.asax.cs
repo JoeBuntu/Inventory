@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Inventory.WebUI.Infrastructure;
 
 namespace Inventory.WebUI
 {
@@ -27,8 +28,8 @@ namespace Inventory.WebUI
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-
             RegisterRoutes(RouteTable.Routes);
+            ControllerBuilder.Current.SetControllerFactory(new NInjectControllerFactory());
         }
     }
 }
