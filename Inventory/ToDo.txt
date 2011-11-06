@@ -1,0 +1,20 @@
+
+General Repository:
+1. [X] Version
+2. User
+3. timestamp
+4. component?
+
+
+Materials:
+1. Repository paging
+2. Repository ordering
+3. Repository updating
+4. [X] Convert eaches + pieces to int from decimal
+5. [X] Restrict enumeration type to table
+6. Exception for when commits fail
+7. Test concurrency
+
+
+Bom Component:
+1. Enforce uniqueness for components in a bom
