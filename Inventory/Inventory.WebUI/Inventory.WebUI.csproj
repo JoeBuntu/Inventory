@@ -33,7 +33,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HibernatingRhinos.Profiler.Appender">
+      <HintPath>..\..\..\..\.NET Libraries\NHibernate.Profiler-Build-917\HibernatingRhinos.Profiler.Appender.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\.NET Libraries\NHibernate-3.2.0.GA-bin\Required_Bins\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\..\.NET Libraries\log4net-1.2.10\bin\net\2.0\release\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NHibernate, Version=3.2.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\.NET Libraries\NHibernate-3.2.0.GA-bin\Required_Bins\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\..\..\..\.NET Libraries\Ninject-2.2.0.0-release-net-4.0\Ninject.dll</HintPath>
     </Reference>
