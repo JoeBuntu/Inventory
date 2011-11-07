@@ -44,6 +44,9 @@
       <HintPath>..\..\..\..\.NET Libraries\log4net-1.2.10\bin\net\2.0\release\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.4.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NHibernate, Version=3.2.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\.NET Libraries\NHibernate-3.2.0.GA-bin\Required_Bins\NHibernate.dll</HintPath>
@@ -80,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\MaterialsController.cs" />
+    <Compile Include="Filters\NHibernateSessionAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -96,8 +100,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\delete.gif" />
+    <Content Include="Content\Images\edit.png" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Views\Materials\Delete.aspx" />
+    <Content Include="Views\Materials\Edit.aspx" />
     <Content Include="Views\Materials\List.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -149,7 +157,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49404</DevelopmentServerPort>
+          <DevelopmentServerPort>55688</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

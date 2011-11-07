@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using NHibernate;
+using NHibernate.Cfg;
 using Inventory.WebUI.Infrastructure;
 
 namespace Inventory.WebUI
@@ -13,6 +15,8 @@ namespace Inventory.WebUI
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        public static ISessionFactory SessionFactory { get; private set; }
+
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
@@ -20,17 +24,33 @@ namespace Inventory.WebUI
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Maetrials", action = "List", page = UrlParameter.Optional } // Parameter defaults
+                new { controller = "Materials", action = "List", page = UrlParameter.Optional } // Parameter defaults
             );
             routes.MapRoute(null, "{controller}/{action}");
+            routes.MapRoute(null, "", new { controller = "Materials", action = "List", page = 1 });
+            System.Diagnostics.Trace.WriteLine("Register");
 
         }
 
         protected void Application_Start()
         {
+            //Setup Route Mapping Tables
             AreaRegistration.RegisterAllAreas();
             RegisterRoutes(RouteTable.Routes);
-            ControllerBuilder.Current.SetControllerFactory(new NInjectControllerFactory());
+            System.Diagnostics.Trace.WriteLine("Hello");
+
+            //Setup Log4Net
+            log4net.Config.XmlConfigurator.Configure();
+
+            //Setup NHibernate Profiling 
+            HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
+            
+            //Create session factory
+            Configuration nhConfig = new Configuration().Configure();
+            SessionFactory = nhConfig.BuildSessionFactory();
+
+            //Setup NInject Controller Factory
+            ControllerBuilder.Current.SetControllerFactory(new Inventory.WebUI.Infrastructure.NInjectControllerFactory());
         }
 
     }

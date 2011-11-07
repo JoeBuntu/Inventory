@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IMaterialsRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="MaterialsRepository.cs" />
     <Compile Include="NHibernateBase.cs" />

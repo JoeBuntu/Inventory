@@ -11,7 +11,7 @@
     <div id="header">
        <%-- <% if(!(ViewContext.Controller is SportsStore.WebUI.Controllers.CartController))
             Html.RenderAction("Summary", "Cart"); %>--%>
-        <div class="title">SPORTS STORE</div>
+        <div class="title">INVENTORY MANAGEMENT</div>
     </div>
     <div id="categories">
     <%--    <% Html.RenderAction("Menu", "Nav"); %>--%>

@@ -8,7 +8,7 @@ using Inventory.Core.Entities;
 
 namespace Inventory.Core.Data
 {
-    public class MaterialsRepository
+    public class MaterialsRepository : IMaterialsRepository
     {
         ISessionFactory m_SessionFactory;
         ISession m_Session;
@@ -17,6 +17,11 @@ namespace Inventory.Core.Data
         {
             m_SessionFactory = sessionFactory;
             m_Session = m_SessionFactory.OpenSession();
+        }
+
+        public int Count
+        {
+            get { return m_Session.Query<Material>().Count(); }
         }
 
         public Material Get(int id)
