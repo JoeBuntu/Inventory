@@ -7,8 +7,8 @@ namespace Inventory.Core.Entities
 {
     public abstract class EntityBase<TId>
     {
-        public virtual TId Id { get; protected set; }
-        protected virtual int Version { get; set; }
+        public virtual TId Id { get; set; }
+        public virtual int Version { get; set; }
 
         public override bool Equals(object obj)
         {
