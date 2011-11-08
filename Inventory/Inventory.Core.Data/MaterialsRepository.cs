@@ -21,7 +21,16 @@ namespace Inventory.Core.Data
 
         public int Count
         {
-            get { return m_Session.Query<Material>().Count(); }
+            get
+            {
+                int result;
+                using (ITransaction trxn = m_Session.BeginTransaction())
+                {
+                    result = m_Session.Query<Material>().Count();
+                    trxn.Commit();
+                }
+                return result;
+            }
         }
 
         public Material Get(int id)
