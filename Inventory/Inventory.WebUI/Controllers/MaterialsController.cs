@@ -52,19 +52,31 @@ namespace Inventory.WebUI.Controllers
         [HttpGet]
         public ViewResult Edit(int material_id)
         {
-            return View();
+            //get material
+            Material m = m_Repository.Get(material_id);
+
+            return View(m);
         }
 
         [HttpPost]
         public ActionResult Edit(Material material)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                m_Repository.Update(material);
+
+                return RedirectToAction("List", new { page = 1 });
+            }
+            else
+            {
+                throw new Exception();
+            }
         }
 
         [HttpGet]
         public ViewResult Delete(int material_id)
         {
-            return View();
+            return View("");
         }
 
         [HttpPost]
