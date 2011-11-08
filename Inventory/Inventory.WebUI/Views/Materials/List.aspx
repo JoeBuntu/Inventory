@@ -28,16 +28,16 @@
                         <td><%: m.PartNumber %></td>
                         <td><%: m.Description %></td>
                         <td><%: m.Type.ToString() %></td>
-                        <td><%: m.PiecesPerCase.ToString("n") %></td>
-                        <td><%: m.EachesPerPiece.ToString("n") %></td>
+                        <td><%: string.Format("{0:#,0}", m.PiecesPerCase)  %></td>
+                        <td><%: string.Format("{0:#,0}", m.EachesPerPiece) %></td>
                         <td>
                             <a href="<%: Url.Action("Edit", new { material_id = m.Id }) %>">
-                                <img src="../../Content/Images/edit.png" title="Edit" />
+                                <img alt="Edit" src="../../Content/Images/edit.png" title="Edit" />
                             </a>
                         </td>
                         <td>
                             <a href="<%: Url.Action("Delete", new { material_id = m.Id }) %>">
-                                <img src="../../Content/Images/delete.gif" title="Delete" />
+                                <img alt="Delete" src="../../Content/Images/delete.gif" title="Delete" />
                             </a>
                         </td>
                    </tr>
