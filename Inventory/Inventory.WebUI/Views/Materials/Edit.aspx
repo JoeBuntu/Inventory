@@ -14,6 +14,7 @@
             <%: Html.HiddenFor(x => x.Id) %>
             <%: Html.HiddenFor(x => x.PartNumber) %>
             <%: Html.HiddenFor(x => x.Version) %>
+            <%: Html.HiddenFor(x => x.Type) %>
             
             <label>Part Number</label>
             <label><%: Model.PartNumber %></label>
@@ -24,10 +25,7 @@
             <br />
 
             <label>Type</label>
-            <%: Html.DropDownListFor( x => Model.Type, new SelectListItem[] { 
-                        new SelectListItem() { Text = MaterialType.Product.ToString(), Value = MaterialType.Product.ToString()},
-                        new SelectListItem() { Text = MaterialType.Component.ToString(), Value = MaterialType.Component.ToString()}
-            })%>
+            <label><%: Model.Type %></label>
             <br />
 
             <label>Pieces/Case</label>
