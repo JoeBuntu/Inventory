@@ -59,7 +59,7 @@ namespace Inventory.Core.Data
             {
                 try
                 {
-                    result = m_Session.Query<Material>().Skip(0).Take(count).ToList();
+                    result = m_Session.Query<Material>().Skip(start_index).Take(count).ToList();
                     trxn.Commit();
                 }
                 catch (Exception ex)
