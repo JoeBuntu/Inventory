@@ -52,7 +52,21 @@ namespace Inventory.WebUI.Controllers
         [HttpGet]
         public ViewResult Create()
         {
-            return View("Edit", new Material());
+            return View(new Material());
+        }
+
+        [HttpPost]
+        public ActionResult Create(Material material)
+        {
+            if (ModelState.IsValid)
+            {
+                m_Repository.Add(material);
+                return RedirectToAction("List", new { page = 1 });
+            }
+            else
+            {
+                throw new Exception();
+            }
         }
 
         [HttpGet]
@@ -88,7 +102,8 @@ namespace Inventory.WebUI.Controllers
         [HttpPost]
         public ActionResult ConfirmDelete(int material_id)
         {
-            return View();
+            m_Repository.Delete(material_id);
+            return RedirectToAction("List", new { page = 1 });
         }
     }
 }
