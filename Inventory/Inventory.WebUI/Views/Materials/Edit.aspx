@@ -38,7 +38,7 @@
         </p>
 
         <input type="submit" value="Save" />
-        <%: Html.ActionLink("Cancel", "List") %>
+        <%: Html.ActionLink("Cancel", "List", new { page = 1 })%>
     <% } %>
 
 </asp:Content>
