@@ -6,6 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server"> 
    
+   <%: Html.ActionLink("Add New", "Create") %>
    <div class="table">
         <table>
             <thead>
