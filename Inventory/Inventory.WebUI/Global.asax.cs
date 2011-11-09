@@ -23,13 +23,11 @@ namespace Inventory.WebUI
 
             routes.MapRoute(
                 "Default", // Route name
-                "{controller}/{action}/{id}", // URL with parameters
+                "{controller}/{action}/{page}", // URL with parameters
                 new { controller = "Materials", action = "List", page = UrlParameter.Optional } // Parameter defaults
             );
             routes.MapRoute(null, "{controller}/{action}");
             routes.MapRoute(null, "", new { controller = "Materials", action = "List", page = 1 });
-            System.Diagnostics.Trace.WriteLine("Register");
-
         }
 
         protected void Application_Start()
@@ -37,7 +35,6 @@ namespace Inventory.WebUI
             //Setup Route Mapping Tables
             AreaRegistration.RegisterAllAreas();
             RegisterRoutes(RouteTable.Routes);
-            System.Diagnostics.Trace.WriteLine("Hello");
 
             //Setup Log4Net
             log4net.Config.XmlConfigurator.Configure();
