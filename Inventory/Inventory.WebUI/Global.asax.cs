@@ -27,7 +27,7 @@ namespace Inventory.WebUI
                 new { controller = "Materials", action = "List", page = UrlParameter.Optional } // Parameter defaults
             );
             routes.MapRoute(null, "{controller}/{action}");
-            routes.MapRoute(null, "", new { controller = "Materials", action = "List", page = 1 });
+            routes.MapRoute(null, "", new { controller = "Materials", action = "List", page = 1, sort_col = (string) null, sort_desc = true });
         }
 
         protected void Application_Start()
