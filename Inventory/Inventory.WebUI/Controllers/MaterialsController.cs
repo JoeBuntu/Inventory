@@ -19,8 +19,14 @@ namespace Inventory.WebUI.Controllers
             m_Repository = repository;
         }
 
-        public ViewResult List(int page)
+        public ViewResult List(int page = 1)
         {
+            //page should be >= 1
+            if (page < 1)
+            {
+                page = 1;
+            }
+
             //create view model
             MaterialsListViewModel viewModel = new MaterialsListViewModel();
 
@@ -29,7 +35,7 @@ namespace Inventory.WebUI.Controllers
             int start_index = (page - 1) * m_PageSize;
             
             //load materials
-            viewModel.Materials = m_Repository.Get(start_index, count);
+            viewModel.Materials = m_Repository.Get(start_index, m_PageSize);
 
             //populate paging info
             viewModel.PagingInfo = new PagingInfo()
