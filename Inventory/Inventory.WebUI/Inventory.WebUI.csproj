@@ -97,6 +97,7 @@
     <Content Include="Content\Images\edit.png" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Views\Materials\Create.aspx" />
     <Content Include="Views\Materials\Delete.aspx" />
     <Content Include="Views\Materials\Edit.aspx" />
     <Content Include="Views\Materials\List.aspx" />
