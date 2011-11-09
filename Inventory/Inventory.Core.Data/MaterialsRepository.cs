@@ -110,7 +110,13 @@ namespace Inventory.Core.Data
                 }
             }
         }
- 
+
+        public void Delete(int id)
+        {
+            Material material = Get(id);
+            this.Delete(material);
+        }
+
         public void Delete(Material material)
         {
             using (ITransaction trxn = m_Session.BeginTransaction())

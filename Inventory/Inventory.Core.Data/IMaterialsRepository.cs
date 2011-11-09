@@ -13,6 +13,7 @@ namespace Inventory.Core.Data
         List<Material> Get(int start_index, int count); 
         int Add(Material material); 
         void Update(Material material);
+        void Delete(int id);
         void Delete(Material material);
     }
 }
