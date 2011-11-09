@@ -71,6 +71,29 @@ namespace Inventory.Core.Data
             return result;
         }
 
+        public IList<Material> Get(int start_index, int count, string sort_column, bool sort_asc)
+        {
+            IList<Material> result = null;
+            using (ITransaction trxn = m_Session.BeginTransaction())
+            {
+                try
+                {
+                    result = m_Session.CreateCriteria<Material>()
+                              .AddOrder(new NHibernate.Criterion.Order(sort_column, sort_asc))
+                              .SetFirstResult(start_index)
+                              .SetMaxResults(count)
+                              .List<Material>();                             
+                    trxn.Commit();
+                }
+                catch (Exception ex)
+                {
+                    trxn.Rollback();
+                    throw ex;
+                }
+            }
+            return result;
+        }
+
         public int Add(Material material)
         {
             int result;

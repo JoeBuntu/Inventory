@@ -10,7 +10,8 @@ namespace Inventory.Core.Data
     {
         int Count { get; }
         Material Get(int id);
-        List<Material> Get(int start_index, int count); 
+        List<Material> Get(int start_index, int count);
+        IList<Material> Get(int start_index, int count, string sort_column, bool sort_asc);
         int Add(Material material); 
         void Update(Material material);
         void Delete(int id);
