@@ -47,9 +47,9 @@ namespace Inventory.WebUI.Models
                 if (TotalPages > GroupSize)
                 {
                     int sideCount = (int) ( GroupSize / 2);
-                    if (CurrentPage - sideCount > 1)
+                    if (CurrentPage - sideCount > 2)
                     {
-                        if (CurrentPage + sideCount < TotalPages)
+                        if (CurrentPage + sideCount < TotalPages - 1)
                         {
                             return CurrentPage - sideCount;
                         }
@@ -70,9 +70,9 @@ namespace Inventory.WebUI.Models
                 if (TotalPages > GroupSize)
                 {
                     int sideCount = (int)(GroupSize / 2);
-                    if (CurrentPage + sideCount < TotalPages)
+                    if (CurrentPage + sideCount < TotalPages - 1)
                     {
-                        if (CurrentPage - sideCount > 1)
+                        if (CurrentPage - sideCount  > 2)
                         {
                             return CurrentPage + sideCount;
                         }
