@@ -4,11 +4,11 @@
 	Inventory: Materials
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server"> 
-   
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">    
    
    <%: Html.ActionLink("Add New", "Create") %>
    <%: Html.Partial("Paging", Model.PagingInfo) %>
+
    <div class="table">
         <table>
             <thead>
@@ -48,8 +48,4 @@
             </tbody>
         </table>
    </div>
-
-    <div class="pager">
-
-    </div>
 </asp:Content>
