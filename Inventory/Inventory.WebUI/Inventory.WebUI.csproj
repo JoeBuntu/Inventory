@@ -102,6 +102,7 @@
     <Content Include="Views\Materials\Delete.aspx" />
     <Content Include="Views\Materials\Edit.aspx" />
     <Content Include="Views\Materials\List.aspx" />
+    <Content Include="Views\Shared\Paging.ascx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
