@@ -19,6 +19,7 @@ namespace Inventory.WebUI.Controllers
             m_Repository = repository;
         }
 
+        [HttpGet]
         public ViewResult List(int page = 1, string sort_col = "PartNumber", bool sort_asc = true)
         {
             //page should be >= 1
@@ -96,7 +97,10 @@ namespace Inventory.WebUI.Controllers
         [HttpGet]
         public ViewResult Delete(int material_id)
         {
-            return View("");
+            //get material
+            Material m = m_Repository.Get(material_id);
+
+            return View(m);
         }
 
         [HttpPost]
