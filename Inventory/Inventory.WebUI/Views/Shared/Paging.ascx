@@ -25,7 +25,7 @@
     
     <!-- Next -->
     <% if (!Model.IsLast) { %>
-        <%: Html.ActionLink("Next", "List", new {page = Model.CurrentPage + 1, sort_col = Model.SortColumn, sort_asc = Model.SortAsc}) )%>
+        <%: Html.ActionLink("Next", "List", new {page = Model.CurrentPage + 1, sort_col = Model.SortColumn, sort_asc = Model.SortAsc})%>
     <% } %>
 </div>
 
