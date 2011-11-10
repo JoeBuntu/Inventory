@@ -9,31 +9,36 @@
     <h2>Create New Material:</h2>
 
     <% Html.EnableClientValidation(); %>
-    <% using (Html.BeginForm()) { %>
-        <p>           
-            <label>Part Number</label>
-            <%: Html.TextBoxFor(x => Model.PartNumber) %>
-            <br />
-
-            <label>Description</label>
-            <%: Html.TextBoxFor(x => Model.Description) %>
-            <br />
-
-            <label>Type</label>
-            <%: Html.DropDownListFor( x => Model.Type, new SelectListItem[] { 
-                        new SelectListItem() { Text = MaterialType.Product.ToString(), Value = MaterialType.Product.ToString()},
-                        new SelectListItem() { Text = MaterialType.Component.ToString(), Value = MaterialType.Component.ToString()}
-            })%>
-            <br />
-
-            <label>Pieces/Case</label>
-            <%: Html.TextBoxFor(x => x.PiecesPerCase)  %>
-            <br />
-
-            <label>Eaches/Piece</label>
-            <%: Html.TextBoxFor(x => x.EachesPerPiece) %>
-            <br />
-        </p>
+    <% using (Html.BeginForm()) { %>        
+        <table>
+            <tbody>
+                <tr>
+                    <th>Part Number</th>
+                    <td><%: Html.TextBoxFor(x => Model.PartNumber) %></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td><%: Html.TextBoxFor(x => Model.Description) %></td>
+                </tr>
+                <tr>
+                    <th>Type</th>
+                    <td>
+                        <%: Html.DropDownListFor( x => Model.Type, new SelectListItem[] { 
+                                new SelectListItem() { Text = MaterialType.Product.ToString(), Value = MaterialType.Product.ToString()},
+                                new SelectListItem() { Text = MaterialType.Component.ToString(), Value = MaterialType.Component.ToString()}
+                        })%>    
+                    </td>
+                </tr>
+                <tr>
+                    <th>Pieces/Case</th>
+                    <td><%: Html.TextBoxFor(x => x.PiecesPerCase) %></td>
+                </tr>
+                <tr>
+                    <th>Eaches/Piece</th>
+                    <td><%: Html.TextBoxFor(x => x.EachesPerPiece) %></td>
+                </tr>
+            </tbody>
+        </table>
 
         <input type="submit" value="Save" />
          <%: Html.ActionLink("Cancel", "List", new { page = 1 })%>
