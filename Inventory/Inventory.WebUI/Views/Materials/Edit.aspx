@@ -4,41 +4,41 @@
 	Inventory: Edit Material
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
     
     <h2>Edit: <%: Model.PartNumber %></h2>
 
     <% Html.EnableClientValidation(); %>
     <% using (Html.BeginForm()) { %>
-        <p>
-            <%: Html.HiddenFor(x => x.Id) %>
-            <%: Html.HiddenFor(x => x.PartNumber) %>
-            <%: Html.HiddenFor(x => x.Version) %>
-            <%: Html.HiddenFor(x => x.Type) %>
-            
-            <label>Part Number</label>
-            <label><%: Model.PartNumber %></label>
-            <br />
 
-            <label>Description</label>
-            <%: Html.TextBoxFor(x => Model.Description) %>
-            <br />
+        <%: Html.HiddenFor(x => x.Id) %>
+        <%: Html.HiddenFor(x => x.PartNumber) %>
+        <%: Html.HiddenFor(x => x.Version) %>
+        <%: Html.HiddenFor(x => x.Type) %>
 
-            <label>Type</label>
-            <label><%: Model.Type %></label>
-            <br />
-
-            <label>Pieces/Case</label>
-            <%: Html.TextBoxFor(x => x.PiecesPerCase)  %>
-            <br />
-
-            <label>Eaches/Piece</label>
-            <%: Html.TextBoxFor(x => x.EachesPerPiece) %>
-            <br />
-        </p>
+        <table>
+            <tr>
+                <th>Part Number</th>
+                <td><%: Model.PartNumber %></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td><%: Html.TextBoxFor(x => x.Description) %></td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td><%: Model.Type %></td>
+            </tr>
+            <tr>
+                <th>Pieces/Case</th>
+                <td><%: Html.TextBoxFor(x => x.PiecesPerCase) %></td>
+            </tr>
+            <tr>
+                <th>Eaches/Piece</th>
+                <td><%: Html.TextBoxFor(x => x.EachesPerPiece) %></td>
+            </tr>
+        </table>
 
         <input type="submit" value="Save" />
         <%: Html.ActionLink("Cancel", "List", new { page = 1 })%>
     <% } %>
-
 </asp:Content>
