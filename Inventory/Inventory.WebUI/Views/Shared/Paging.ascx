@@ -12,7 +12,7 @@
     <% } %>
 
     <!-- Page Numbers -->
-    <%for (int i = Model.GroupStart; i < Model.GroupEnd + 1; i++)
+    <%for (int i = Model.BlockStart; i < Model.BlockEnd + 1; i++)
       { %>
         <%: Html.ActionLink(i.ToString(), "List", new {page = i, sort_col = Model.SortColumn, sort_asc = Model.SortAsc }) %>
     <%} %>

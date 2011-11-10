@@ -7,7 +7,7 @@ namespace Inventory.WebUI.Models
 {
     public class PagingInfo
     {
-        private int m_GroupSize = 5;
+        private int m_BlockSize = 5;
 
         public int ItemsPerPage { get; set; }
         public int TotalItems { get; set; }
@@ -20,33 +20,33 @@ namespace Inventory.WebUI.Models
         public bool IsFirst { get { return CurrentPage == 1; } }
         public bool IsLast { get { return CurrentPage == TotalPages; } }
 
-        public int GroupSize
+        public int BlockSize
         {
-            get { return m_GroupSize; }
+            get { return m_BlockSize; }
             set
             {
-                if (m_GroupSize % 2 > 0)
+                if (m_BlockSize % 2 > 0)
                     throw new ArgumentException("Group Size not set to an odd number");
-                m_GroupSize = value;
+                m_BlockSize = value;
             }
         }
         public bool HasLeftGroupGap
         {
-            get { return GroupStart > 1; }
+            get { return BlockStart > 1; }
         }
 
         public bool HasRightGroupGap
         {
-            get { return GroupEnd < TotalPages; }
+            get { return BlockEnd < TotalPages; }
         }
 
-        public int GroupStart
+        public int BlockStart
         {
             get
             {
-                if (TotalPages > GroupSize)
+                if (TotalPages > BlockSize)
                 {
-                    int sideCount = (int) ( GroupSize / 2);
+                    int sideCount = (int) ( BlockSize / 2);
                     if (CurrentPage - sideCount > 2)
                     {
                         if (CurrentPage + sideCount < TotalPages - 1)
@@ -55,7 +55,7 @@ namespace Inventory.WebUI.Models
                         }
                         else
                         {
-                            return TotalPages - GroupSize + 1;
+                            return TotalPages - BlockSize + 1;
                         }
                     }
                 }
@@ -63,13 +63,13 @@ namespace Inventory.WebUI.Models
             }
         }
 
-        public int GroupEnd
+        public int BlockEnd
         {
             get
             {
-                if (TotalPages > GroupSize)
+                if (TotalPages > BlockSize)
                 {
-                    int sideCount = (int)(GroupSize / 2);
+                    int sideCount = (int)(BlockSize / 2);
                     if (CurrentPage + sideCount < TotalPages - 1)
                     {
                         if (CurrentPage - sideCount  > 2)
@@ -78,7 +78,7 @@ namespace Inventory.WebUI.Models
                         }
                         else
                         {
-                            return GroupSize;
+                            return BlockSize;
                         }
                     }
                 }
