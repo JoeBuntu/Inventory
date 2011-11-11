@@ -55,7 +55,7 @@ namespace Inventory.Core.Data
             catch(Exception ex)
             {
                 OnAddException(item, ex);
-                throw ex;
+                return 0;
             }
         }
 
@@ -72,8 +72,7 @@ namespace Inventory.Core.Data
             }
             catch (Exception ex)
             {
-                OnAddException(item, ex);
-                throw ex;
+                OnUpdateException(item, ex);
             }
         }
 
@@ -81,7 +80,6 @@ namespace Inventory.Core.Data
         {
             throw ex;
         }
-
 
         public void Delete(int id)
         {
@@ -97,8 +95,7 @@ namespace Inventory.Core.Data
             }
             catch (Exception ex)
             {
-                OnAddException(item, ex);
-                throw ex;
+                OnDeleteException(item, ex);                
             }
         }
 
