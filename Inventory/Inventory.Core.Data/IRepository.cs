@@ -6,11 +6,15 @@ using Inventory.Core.Entities;
 
 namespace Inventory.Core.Data
 {
-    public interface IRepository<T> : IEnumerable<T> where T : EntityBase
+    public interface IRepository<T> where T : EntityBase
     {
-        void Add(T item);
-        bool Contains(T item);
         int Count { get; }
-        bool Remove(T item);
+        T Get(int id);
+        List<T> Get(int start_index, int count);
+        IList<T> Get(int start_index, int count, string sort_column, bool sort_asc);
+        int Add(T item);
+        void Update(T item);
+        void Delete(int id);
+        void Delete(T item);
     }
 }

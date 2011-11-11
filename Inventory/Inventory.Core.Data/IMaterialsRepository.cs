@@ -6,15 +6,7 @@ using Inventory.Core.Entities;
 
 namespace Inventory.Core.Data
 {
-    public interface IMaterialsRepository
+    public interface IMaterialsRepository : IRepository<Material>
     {
-        int Count { get; }
-        Material Get(int id);
-        List<Material> Get(int start_index, int count);
-        IList<Material> Get(int start_index, int count, string sort_column, bool sort_asc);
-        int Add(Material material); 
-        void Update(Material material);
-        void Delete(int id);
-        void Delete(Material material);
     }
 }
