@@ -42,12 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\RepositoryDeleteException.cs" />
+    <Compile Include="Exceptions\RepositoryInsertException.cs" />
+    <Compile Include="Exceptions\RepositoryUpdateException.cs" />
     <Compile Include="IMaterialsRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="MaterialsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="RepositoryBase.cs" />
+    <Compile Include="Exceptions\RepositoryExceptionBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Inventory.Core\Inventory.Core.csproj">
