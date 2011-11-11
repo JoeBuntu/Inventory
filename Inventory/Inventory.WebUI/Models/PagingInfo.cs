@@ -86,6 +86,11 @@ namespace Inventory.WebUI.Models
             }
         }
 
+        public int StartRow
+        {
+            get { return (CurrentPage - 1) * ItemsPerPage + 1; }
+        }
+
         public string SortColumn { get; set; }
         public bool SortAsc { get; set; }
     }
