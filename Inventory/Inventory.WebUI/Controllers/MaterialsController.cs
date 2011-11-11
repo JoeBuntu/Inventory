@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Inventory.Core.Data;
+using Inventory.Core.Data.Exceptions;
 using Inventory.Core.Entities;
 using Inventory.WebUI.Models;
 
@@ -43,7 +44,9 @@ namespace Inventory.WebUI.Controllers
             {
                  CurrentPage = page,
                  ItemsPerPage = m_PageSize,
-                 TotalItems = count                 
+                 TotalItems = count,      
+                 SortColumn = sort_col,
+                 SortAsc = sort_asc
             };
             
             // return result with view model
@@ -61,10 +64,18 @@ namespace Inventory.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                m_Repository.Add(material);
-                TempData["confirmation_message"] = string.Format("Material '{0}' - '{1}' has been successfully created",
-                                                                 material.PartNumber, material.Description);
-                return RedirectToAction("List", new { page = 1 });
+                try
+                {
+                    m_Repository.Add(material);
+                    TempData["confirmation_message"] = string.Format("Material '{0}' - '{1}' has been successfully created",
+                                                                     material.PartNumber, material.Description);
+                    return RedirectToAction("List", new { page = 1 });
+                }
+                catch (RepositoryInsertException ex)
+                {
+                    TempData["error"] = ex.Message;
+                    return View(material);
+                }
             }
             else //invalid model
             {
@@ -85,10 +96,18 @@ namespace Inventory.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                m_Repository.Update(material);
-                TempData["confirmation_message"] = string.Format("Material '{0}' - '{1}' has been successfully updated",
-                                                                 material.PartNumber, material.Description);
-                return RedirectToAction("List", new { page = 1 });
+                try
+                {
+                    m_Repository.Update(material);
+                    TempData["confirmation_message"] = string.Format("Material '{0}' - '{1}' has been successfully updated",
+                                                                     material.PartNumber, material.Description);
+                    return RedirectToAction("List", new { page = 1 });
+                }
+                catch (RepositoryUpdateException ex)
+                {
+                    TempData["error"] = ex.Message;
+                    return View(material);
+                }
             }
             else // invalid model
             {
@@ -109,12 +128,20 @@ namespace Inventory.WebUI.Controllers
         {
             //get material
             Material material = m_Repository.Get(material_id);
-            m_Repository.Delete(material);
+            try
+            {                
+                m_Repository.Delete(material);
 
-            //set confirmation message
-            TempData["confirmation_message"] = string.Format("Material '{0}' - '{1}' has been successfully deleted",
-                                                             material.PartNumber, material.Description);
-            return RedirectToAction("List", new { page = 1 });
+                //set confirmation message
+                TempData["confirmation_message"] = string.Format("Material '{0}' - '{1}' has been successfully deleted",
+                                                                 material.PartNumber, material.Description);
+                return RedirectToAction("List", new { page = 1 });
+            }
+            catch (RepositoryDeleteException ex)
+            {
+                TempData["error"] = ex.Message;
+                return View("Delete", material);
+            }
         }
     }
 }
