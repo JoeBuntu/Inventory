@@ -6,6 +6,11 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
+   <div id="error">
+       <p>
+            <%: TempData["error"] %>
+       </p>   
+   </div>
     <h2>Confirm Deletion: <%: Model.PartNumber %></h2>
     <table>
         <tbody>
