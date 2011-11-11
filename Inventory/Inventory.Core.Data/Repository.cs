@@ -48,13 +48,40 @@ namespace Inventory.Core.Data
 
         public int Add(T item)
         {
-            return this.Transact<int>(() => (int)Session.Save(item));
+            try
+            {
+                return this.Transact<int>(() => (int)Session.Save(item));
+            }
+            catch(Exception ex)
+            {
+                OnAddException(item, ex);
+                throw ex;
+            }
         }
 
-        public void Update(T item)
+        protected virtual void OnAddException(T item, Exception ex)
         {
-            this.Transact(() => Session.Update(item));
+            throw ex;
         }
+
+        public virtual void Update(T item)
+        {
+            try 
+            {
+                this.Transact(() => Session.Update(item));
+            }
+            catch (Exception ex)
+            {
+                OnAddException(item, ex);
+                throw ex;
+            }
+        }
+
+        protected virtual void OnUpdateException(T item, Exception ex)
+        {
+            throw ex;
+        }
+
 
         public void Delete(int id)
         {
@@ -64,7 +91,20 @@ namespace Inventory.Core.Data
 
         public void Delete(T item)
         {
-            this.Transact(() => Session.Delete(item));
-        } 
+            try
+            {
+                this.Transact(() => Session.Delete(item));
+            }
+            catch (Exception ex)
+            {
+                OnAddException(item, ex);
+                throw ex;
+            }
+        }
+
+        protected virtual void OnDeleteException(T item, Exception ex)
+        {
+            throw ex;
+        }
     }
 }
