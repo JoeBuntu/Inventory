@@ -62,9 +62,11 @@ namespace Inventory.WebUI.Controllers
             if (ModelState.IsValid)
             {
                 m_Repository.Add(material);
+                TempData["confirmation_message"] = string.Format("Material '{0}' - '{1}' has been successfully created",
+                                                                 material.PartNumber, material.Description);
                 return RedirectToAction("List", new { page = 1 });
             }
-            else
+            else //invalid model
             {
                 return View(material);
             }
@@ -73,9 +75,8 @@ namespace Inventory.WebUI.Controllers
         [HttpGet]
         public ViewResult Edit(int material_id)
         {
-            //get material
+            //display material editor
             Material m = m_Repository.Get(material_id);
-
             return View(m);
         }
 
@@ -85,10 +86,11 @@ namespace Inventory.WebUI.Controllers
             if (ModelState.IsValid)
             {
                 m_Repository.Update(material);
-
+                TempData["confirmation_message"] = string.Format("Material '{0}' - '{1}' has been successfully updated",
+                                                                 material.PartNumber, material.Description);
                 return RedirectToAction("List", new { page = 1 });
             }
-            else
+            else // invalid model
             {
                 return View(material);
             }
@@ -97,16 +99,21 @@ namespace Inventory.WebUI.Controllers
         [HttpGet]
         public ViewResult Delete(int material_id)
         {
-            //get material
-            Material m = m_Repository.Get(material_id);
-
-            return View(m);
+            //display delete confirmation
+            Material material = m_Repository.Get(material_id);
+            return View(material);
         }
 
         [HttpPost]
         public ActionResult ConfirmDelete(int material_id)
         {
-            m_Repository.Delete(material_id);
+            //get material
+            Material material = m_Repository.Get(material_id);
+            m_Repository.Delete(material);
+
+            //set confirmation message
+            TempData["confirmation_message"] = string.Format("Material '{0}' - '{1}' has been successfully deleted",
+                                                             material.PartNumber, material.Description);
             return RedirectToAction("List", new { page = 1 });
         }
     }

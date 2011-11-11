@@ -6,6 +6,12 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">    
    
+   <div id="confirmation">
+       <p>
+            <%: TempData["confirmation_message"] %>
+       </p>   
+   </div>
+
    <%: Html.ActionLink("Add New", "Create") %>
    <%: Html.Partial("Paging", Model.PagingInfo) %>
 
