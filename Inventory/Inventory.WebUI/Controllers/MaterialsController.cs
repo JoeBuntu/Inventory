@@ -66,7 +66,7 @@ namespace Inventory.WebUI.Controllers
             }
             else
             {
-                throw new Exception();
+                return View(material);
             }
         }
 
@@ -90,7 +90,7 @@ namespace Inventory.WebUI.Controllers
             }
             else
             {
-                throw new Exception();
+                return View(material);
             }
         }
 
