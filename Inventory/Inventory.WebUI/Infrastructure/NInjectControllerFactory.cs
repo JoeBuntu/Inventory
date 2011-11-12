@@ -33,7 +33,8 @@ namespace Inventory.WebUI.Infrastructure
             {
                 Bind<IMaterialsRepository>()
                     .To<MaterialsRepository>()
-                    .WithConstructorArgument("sessionFactory", MvcApplication.SessionFactory);
+                    .WithConstructorArgument("sessionFactory", MvcApplication.SessionFactory)
+                    .WithConstructorArgument("user_service", new UserService());
             }
         }
     }

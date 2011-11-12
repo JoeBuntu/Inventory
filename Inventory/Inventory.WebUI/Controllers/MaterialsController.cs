@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Inventory.Core.Data;
 using Inventory.Core.Data.Exceptions;
 using Inventory.Core.Entities;
+using Inventory.WebUI.Infrastructure;
 using Inventory.WebUI.Models;
 
 namespace Inventory.WebUI.Controllers
@@ -13,11 +14,13 @@ namespace Inventory.WebUI.Controllers
     public class MaterialsController : Controller
     {
         private IMaterialsRepository m_Repository;
+        private IUserService m_UserService;
         private int m_PageSize = 25;
 
-        public MaterialsController(IMaterialsRepository repository)
+        public MaterialsController(IMaterialsRepository repository, UserService user_service)
         {
             m_Repository = repository;
+            m_UserService = user_service;
         }
 
         [HttpGet]
@@ -63,7 +66,7 @@ namespace Inventory.WebUI.Controllers
         [HttpGet]
         public ViewResult Create()
         {
-            return View(new Material());
+            return View(new Material() );
         }
 
         [HttpPost]
@@ -73,6 +76,7 @@ namespace Inventory.WebUI.Controllers
             {
                 try
                 {
+                    material.User = m_UserService.GetCurrentUser();
                     m_Repository.Add(material);
                     TempData["confirmation_message"] = string.Format("Material '{0}' - '{1}' has been successfully created",
                                                                      material.PartNumber, material.Description);
@@ -94,7 +98,7 @@ namespace Inventory.WebUI.Controllers
         public ViewResult Edit(int material_id)
         {
             //display material editor
-            Material m = m_Repository.Get(material_id);
+            Material m = m_Repository.Get(material_id);          
             return View(m);
         }
 
@@ -105,6 +109,7 @@ namespace Inventory.WebUI.Controllers
             {
                 try
                 {
+                    material.User = m_UserService.GetCurrentUser();
                     m_Repository.Update(material);
                     TempData["confirmation_message"] = string.Format("Material '{0}' - '{1}' has been successfully updated",
                                                                      material.PartNumber, material.Description);
@@ -135,6 +140,7 @@ namespace Inventory.WebUI.Controllers
         {
             //get material
             Material material = m_Repository.Get(material_id);
+            material.User = m_UserService.GetCurrentUser();
             try
             {                
                 m_Repository.Delete(material);
