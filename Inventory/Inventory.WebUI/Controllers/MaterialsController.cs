@@ -40,14 +40,21 @@ namespace Inventory.WebUI.Controllers
             viewModel.Materials = m_Repository.Get(start_index, m_PageSize, sort_col, sort_asc);
 
             //populate paging info
-            viewModel.PagingInfo = new PagingInfo()
+            viewModel.PagingInfo = new PagingInfoViewModel()
             {
                  CurrentPage = page,
                  ItemsPerPage = m_PageSize,
-                 TotalItems = count,      
-                 SortColumn = sort_col,
-                 SortAsc = sort_asc
+                 TotalItems = count                 
             };
+
+            //populate sorting info
+            viewModel.SortingInfo = new SortingInfoViewModel()
+            {
+                Column = sort_col,
+                IsAscending = sort_asc
+            };
+            viewModel.PagingInfo.RouteValues = viewModel.SortingInfo.GetRouteValues();
+            viewModel.SortingInfo.RouteValues = viewModel.PagingInfo.GetRouteValues();
             
             // return result with view model
             return View(viewModel);

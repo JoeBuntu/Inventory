@@ -89,7 +89,10 @@
     </Compile>
     <Compile Include="Infrastructure\NInjectControllerFactory.cs" />
     <Compile Include="Models\MaterialsListViewModel.cs" />
-    <Compile Include="Models\PagingInfo.cs" />
+    <Compile Include="Models\PagingInfoViewModel.cs" />
+    <Compile Include="Models\RouteValueCombiner.cs" />
+    <Compile Include="Models\SortingInfoViewModel.cs" />
+    <Compile Include="Models\ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

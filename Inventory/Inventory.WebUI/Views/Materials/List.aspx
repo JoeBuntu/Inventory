@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<Inventory.WebUI.Models.MaterialsListViewModel>" %>
+<%@ Import Namespace="Inventory.WebUI.Models" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Inventory: Materials
@@ -20,11 +21,11 @@
             <thead>
                 <tr>
                     <th />
-                    <th><%: Html.ActionLink("PartNumber", "List", new { page = 1, sort_col = "PartNumber", sort_asc = true })  %></th>
-                    <th><%: Html.ActionLink("Description", "List", new { page = 1, sort_col = "Description", sort_asc = true })  %></th>
-                    <th><%: Html.ActionLink("Type", "List", new { page = 1, sort_col = "Type", sort_asc = true })  %></th>
-                    <th><%: Html.ActionLink("Pieces/Case", "List", new { page = 1, sort_col = "PiecesPerCase", sort_asc = true })  %></th>
-                    <th><%: Html.ActionLink("Eaches/Piece", "List", new { page = 1, sort_col = "EachesPerPiece", sort_asc = true })  %></th>
+                    <th><%: Html.ActionLink("PartNumber", "List", Model.SortingInfo.GetRouteValues("PartNumber")) %></th>
+                    <th><%: Html.ActionLink("Description", "List", Model.SortingInfo.GetRouteValues("Description"))%></th>
+                    <th><%: Html.ActionLink("Type", "List", Model.SortingInfo.GetRouteValues("Type"))%></th>
+                    <th><%: Html.ActionLink("Pieces/Case", "List", Model.SortingInfo.GetRouteValues("PiecesPerCase"))%></th>
+                    <th><%: Html.ActionLink("Eaches/Piece", "List", Model.SortingInfo.GetRouteValues("EachesPerPiece"))%></th>
                     <th></th>
                     <th></th>
                 </tr>

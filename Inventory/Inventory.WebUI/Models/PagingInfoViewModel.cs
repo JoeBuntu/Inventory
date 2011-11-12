@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Routing;
 
 namespace Inventory.WebUI.Models
 {
-    public class PagingInfo
+    public class PagingInfoViewModel : ViewModelBase
     {
         private int m_BlockSize = 5;
 
@@ -90,8 +91,10 @@ namespace Inventory.WebUI.Models
         {
             get { return (CurrentPage - 1) * ItemsPerPage + 1; }
         }
-
-        public string SortColumn { get; set; }
-        public bool SortAsc { get; set; }
+          
+        public RouteValueDictionary GetRouteValues()
+        {
+            return new RouteValueDictionary(new { page = CurrentPage });
+        }
     }
 }
