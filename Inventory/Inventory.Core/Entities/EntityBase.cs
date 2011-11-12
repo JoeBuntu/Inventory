@@ -10,6 +10,7 @@ namespace Inventory.Core.Entities
         public virtual TId Id { get; set; }
         public virtual int Version { get; set; }
         public virtual User User { get; set; }
+        public virtual DateTime Timestamp { get; set; }
 
         public override bool Equals(object obj)
         {
