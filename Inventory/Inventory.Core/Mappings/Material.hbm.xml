@@ -14,6 +14,6 @@
     <property name="Type" column="mtrl_mtrl_typ_id" not-null="true" update="false" />
     <property name="PiecesPerCase" column="mtrl_pcs_per_cs" not-null="true" />
     <property name="EachesPerPiece" column="mtrl_echs_per_pc" not-null="true" />
-    <many-to-one name="User"  class="User" column="usr_id" foreign-key="fk_Material_User" not-null="true" />
+    <many-to-one name="User"  class="User" column="usr_id" foreign-key="fk_Material_User" lazy="false" not-null="true" />
   </class>
 </hibernate-mapping>
