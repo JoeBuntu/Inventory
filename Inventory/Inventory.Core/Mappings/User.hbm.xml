@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Inventory.Core"
+                   namespace="Inventory.Core.Entities">
+  <class name="User" table="usr">
+    <id name="Id" column="usr_id">
+      <generator class="hilo" />
+    </id>
+    <natural-id mutable="false">
+      <property name="Name" column="usr_nm" length="25" not-null="true" />
+    </natural-id>
+    <version name="Version" column="usr_vrsn" />
+  </class>
+</hibernate-mapping>
