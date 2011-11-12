@@ -7,6 +7,7 @@
         <title>
             <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
         </title>
+        <link rel="Shortcut Icon" href="~/Content/Images/inventory.gif" />
         <link rel="Stylesheet" href="~/Content/Site.css" />
     </head>
     <body>

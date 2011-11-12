@@ -101,6 +101,7 @@
     <Content Include="Content\Images\delete.gif" />
     <Content Include="Content\Images\edit.png" />
     <Content Include="Content\Images\history.png" />
+    <Content Include="Content\Images\inventory.gif" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Views\Materials\Create.aspx" />
