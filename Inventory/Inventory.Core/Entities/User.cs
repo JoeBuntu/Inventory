@@ -10,6 +10,6 @@ namespace Inventory.Core.Entities
     {
         [Required(ErrorMessage = "User name is required")]
         [StringLength(25, MinimumLength = 1, ErrorMessage = "User name must be between 1 and 25 characters")]
-        public virtual string Name { get; }
+        public virtual string Name { get; set; }
     }
 }
