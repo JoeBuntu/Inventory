@@ -58,8 +58,11 @@
     <Compile Include="Entities\UnitType.cs" />
     <Compile Include="Entities\Vendor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entities\User.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\User.hbm.xml" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\BOM.hbm.xml" />
     <EmbeddedResource Include="Mappings\BOMComponent.hbm.xml" />
