@@ -13,9 +13,9 @@ namespace Inventory.WebUI.Controllers
 {
     public class MaterialsController : Controller
     {
-        private IMaterialsRepository m_Repository;
-        private IUserService m_UserService;
-        private int m_PageSize = 25;
+        private readonly IMaterialsRepository m_Repository;
+        private readonly IUserService m_UserService;
+        private readonly int m_PageSize = 25;
 
         public MaterialsController(IMaterialsRepository repository, UserService user_service)
         {
