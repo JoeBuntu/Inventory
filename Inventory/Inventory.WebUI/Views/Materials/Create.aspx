@@ -20,10 +20,12 @@
                 <tr>
                     <th>Part Number</th>
                     <td><%: Html.TextBoxFor(x => Model.PartNumber) %></td>
+                    <td><%: Html.ValidationMessageFor(x => Model.PartNumber) %></td>
                 </tr>
                 <tr>
                     <th>Description</th>
                     <td><%: Html.TextBoxFor(x => Model.Description) %></td>
+                    <td><%: Html.ValidationMessageFor( x => Model.Description) %></td>
                 </tr>
                 <tr>
                     <th>Type</th>
@@ -33,14 +35,17 @@
                                 new SelectListItem() { Text = MaterialType.Component.ToString(), Value = MaterialType.Component.ToString()}
                         })%>    
                     </td>
+                    <td><%: Html.ValidationMessageFor(x => Model.Type) %></td>
                 </tr>
                 <tr>
                     <th>Pieces/Case</th>
                     <td><%: Html.TextBoxFor(x => x.PiecesPerCase) %></td>
+                    <td><%: Html.ValidationMessageFor(x => x.PiecesPerCase) %></td>
                 </tr>
                 <tr>
                     <th>Eaches/Piece</th>
                     <td><%: Html.TextBoxFor(x => x.EachesPerPiece) %></td>
+                    <td><%: Html.ValidationMessageFor(x => x.EachesPerPiece) %></td>
                 </tr>
             </tbody>
         </table>

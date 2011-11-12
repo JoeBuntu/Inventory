@@ -24,22 +24,27 @@
             <tr>
                 <th>Part Number</th>
                 <td><%: Model.PartNumber %></td>
+                <td />
             </tr>
             <tr>
                 <th>Description</th>
                 <td><%: Html.TextBoxFor(x => x.Description) %></td>
+                <td><%: Html.ValidationMessageFor(x => x.Description) %></td>
             </tr>
             <tr>
                 <th>Type</th>
                 <td><%: Model.Type %></td>
+                <td />
             </tr>
             <tr>
                 <th>Pieces/Case</th>
                 <td><%: Html.TextBoxFor(x => x.PiecesPerCase) %></td>
+                <td><%: Html.ValidationMessageFor(x => x.PiecesPerCase) %></td>
             </tr>
             <tr>
                 <th>Eaches/Piece</th>
                 <td><%: Html.TextBoxFor(x => x.EachesPerPiece) %></td>
+                <td><%: Html.ValidationMessageFor(x => x.EachesPerPiece) %></td>
             </tr>
         </table>
 
