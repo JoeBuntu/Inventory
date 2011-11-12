@@ -42,9 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BOMsRepository.cs" />
     <Compile Include="Exceptions\RepositoryDeleteException.cs" />
     <Compile Include="Exceptions\RepositoryInsertException.cs" />
     <Compile Include="Exceptions\RepositoryUpdateException.cs" />
+    <Compile Include="IBOMsRepository.cs" />
     <Compile Include="IMaterialsRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="MaterialsRepository.cs" />
