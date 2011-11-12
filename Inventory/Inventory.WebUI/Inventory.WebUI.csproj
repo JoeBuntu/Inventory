@@ -87,7 +87,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\IUserService.cs" />
     <Compile Include="Infrastructure\NInjectControllerFactory.cs" />
+    <Compile Include="Infrastructure\UserService.cs" />
     <Compile Include="Models\MaterialsListViewModel.cs" />
     <Compile Include="Models\PagingInfoViewModel.cs" />
     <Compile Include="Models\RouteValueCombiner.cs" />
