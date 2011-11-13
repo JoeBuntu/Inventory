@@ -82,6 +82,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BOMsController.cs" />
     <Compile Include="Controllers\MaterialsController.cs" />
     <Compile Include="Filters\NHibernateSessionAttribute.cs" />
     <Compile Include="Global.asax.cs">
