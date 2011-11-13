@@ -90,6 +90,7 @@
     <Compile Include="Infrastructure\IUserService.cs" />
     <Compile Include="Infrastructure\NInjectControllerFactory.cs" />
     <Compile Include="Infrastructure\UserService.cs" />
+    <Compile Include="Models\BOMsListViewModel.cs" />
     <Compile Include="Models\MaterialsListViewModel.cs" />
     <Compile Include="Models\PagingInfoViewModel.cs" />
     <Compile Include="Models\RouteValueCombiner.cs" />
